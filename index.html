@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>J M Textiles & Fashion</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,72 +17,112 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#0f172a;
     color:white;
     overflow-x:hidden;
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#facc15;
+    border-radius:20px;
+}
+
 /* NAVBAR */
 
 nav{
     width:100%;
-    padding:20px 8%;
+    padding:18px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     position:fixed;
     top:0;
     z-index:1000;
-    backdrop-filter:blur(12px);
-    background:rgba(15,23,42,0.6);
+    backdrop-filter:blur(18px);
+    background:rgba(15,23,42,0.75);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
-    font-size:28px;
-    font-weight:700;
+    font-size:30px;
+    font-weight:800;
     color:#facc15;
+    letter-spacing:1px;
 }
 
 nav ul{
     display:flex;
-    gap:30px;
     list-style:none;
+    gap:35px;
 }
 
 nav ul li a{
     text-decoration:none;
     color:white;
+    font-size:16px;
+    font-weight:500;
+    position:relative;
     transition:0.3s;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:3px;
+    background:#facc15;
+    border-radius:20px;
+    transition:0.4s;
 }
 
 nav ul li a:hover{
     color:#facc15;
 }
 
-/* HERO */
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HERO SECTION */
 
 .hero{
     min-height:100vh;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:120px 8%;
+    padding:140px 8% 80px;
     background:
-    linear-gradient(to right, rgba(15,23,42,0.95), rgba(15,23,42,0.75)),
+    linear-gradient(to right,
+    rgba(15,23,42,0.95),
+    rgba(15,23,42,0.70)),
     url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1600&auto=format&fit=crop');
+
     background-size:cover;
     background-position:center;
 }
 
 .hero-content{
-    max-width:650px;
+    max-width:700px;
+    animation:fadeIn 1.2s ease;
 }
 
 .hero-content h1{
-    font-size:72px;
-    line-height:1.1;
-    margin-bottom:20px;
+    font-size:78px;
+    line-height:1.05;
+    margin-bottom:25px;
+    font-weight:800;
 }
 
 .hero-content h1 span{
@@ -89,35 +130,40 @@ nav ul li a:hover{
 }
 
 .hero-content p{
-    font-size:18px;
+    font-size:19px;
+    line-height:1.9;
     color:#cbd5e1;
-    margin-bottom:35px;
-    line-height:1.8;
+    margin-bottom:40px;
 }
 
 .hero-buttons{
     display:flex;
     gap:20px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 32px;
+    padding:16px 34px;
     border:none;
     border-radius:50px;
+    cursor:pointer;
     font-size:16px;
     font-weight:600;
-    cursor:pointer;
     transition:0.4s;
     text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .btn-primary{
     background:#facc15;
     color:black;
+    box-shadow:0 10px 30px rgba(250,204,21,0.35);
 }
 
 .btn-primary:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px) scale(1.03);
 }
 
 .btn-outline{
@@ -129,109 +175,184 @@ nav ul li a:hover{
 .btn-outline:hover{
     background:#facc15;
     color:black;
+    transform:translateY(-5px);
+}
+
+/* FLOATING CARD */
+
+.hero-card{
+    margin-left:auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    padding:35px;
+    border-radius:30px;
+    width:320px;
+    border:1px solid rgba(255,255,255,0.08);
+    animation:float 4s ease-in-out infinite;
+}
+
+.hero-card h3{
+    color:#facc15;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.hero-card p{
+    color:#cbd5e1;
+    line-height:1.8;
 }
 
 /* STATS */
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    padding:80px 8%;
+    padding:90px 8%;
     background:#111827;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:30px;
 }
 
 .stat-card{
     background:#1e293b;
-    padding:35px;
-    border-radius:24px;
+    border-radius:28px;
+    padding:40px;
     text-align:center;
     transition:0.4s;
 }
 
 .stat-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
     background:#334155;
 }
 
 .stat-card h2{
     color:#facc15;
-    font-size:42px;
+    font-size:48px;
     margin-bottom:10px;
+}
+
+.stat-card p{
+    color:#cbd5e1;
+}
+
+/* SECTION TITLE */
+
+.section-title{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:60px;
+    font-weight:700;
 }
 
 /* COLLECTIONS */
 
-.section-title{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-}
-
 .collections{
-    padding:90px 8%;
+    padding:100px 8%;
 }
 
 .collection-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
 }
 
 .card{
     background:#1e293b;
     border-radius:28px;
     overflow:hidden;
-    transition:0.4s;
+    transition:0.5s;
+    position:relative;
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.02);
+    transform:translateY(-12px) scale(1.02);
 }
 
 .card img{
     width:100%;
-    height:320px;
+    height:350px;
     object-fit:cover;
 }
 
 .card-content{
-    padding:25px;
+    padding:28px;
 }
 
 .card-content h3{
-    margin-bottom:10px;
-    font-size:24px;
+    margin-bottom:12px;
+    font-size:28px;
 }
 
 .card-content p{
     color:#cbd5e1;
-    line-height:1.7;
+    line-height:1.8;
+}
+
+/* TAILORING */
+
+.tailoring{
+    padding:100px 8%;
+    background:#111827;
+}
+
+.tailoring-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.tailor-card{
+    background:#1e293b;
+    padding:40px;
+    border-radius:28px;
+    transition:0.4s;
+}
+
+.tailor-card:hover{
+    transform:translateY(-10px);
+}
+
+.tailor-card h3{
+    color:#facc15;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.tailor-card p{
+    color:#cbd5e1;
+    line-height:1.9;
 }
 
 /* TESTIMONIALS */
 
 .testimonials{
-    padding:90px 8%;
-    background:#111827;
+    padding:100px 8%;
 }
 
 .review-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
+    gap:30px;
 }
 
 .review{
     background:#1e293b;
-    padding:30px;
-    border-radius:22px;
+    padding:35px;
+    border-radius:26px;
+    transition:0.4s;
+}
+
+.review:hover{
+    transform:translateY(-10px);
 }
 
 .review p{
     color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:18px;
+    line-height:1.9;
+    margin-bottom:20px;
 }
 
 .review h4{
@@ -242,54 +363,124 @@ nav ul li a:hover{
 
 .contact{
     padding:100px 8%;
-    text-align:center;
+    background:#111827;
 }
 
 .contact-box{
     background:linear-gradient(135deg,#facc15,#f59e0b);
-    padding:60px;
-    border-radius:32px;
     color:black;
+    padding:70px;
+    border-radius:36px;
+    text-align:center;
 }
 
 .contact-box h2{
-    font-size:48px;
+    font-size:54px;
     margin-bottom:20px;
 }
 
 .contact-box p{
-    margin-bottom:30px;
-    font-size:18px;
+    font-size:19px;
+    margin-bottom:35px;
 }
 
 /* FOOTER */
 
 footer{
-    padding:30px;
-    text-align:center;
     background:#020617;
+    padding:35px;
+    text-align:center;
     color:#94a3b8;
 }
 
-/* RESPONSIVE */
+/* ANIMATION */
 
-@media(max-width:900px){
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
 
 .hero{
     flex-direction:column;
+    gap:50px;
+}
+
+.hero-content{
     text-align:center;
 }
 
 .hero-content h1{
-    font-size:48px;
+    font-size:52px;
 }
 
 .hero-buttons{
     justify-content:center;
 }
 
+.hero-card{
+    margin:auto;
+}
+
+nav ul{
+    gap:18px;
+}
+
+nav ul li a{
+    font-size:14px;
+}
+
+}
+
+@media(max-width:650px){
+
+nav{
+    padding:18px 5%;
+}
+
+.logo{
+    font-size:22px;
+}
+
 nav ul{
     display:none;
+}
+
+.hero-content h1{
+    font-size:42px;
+}
+
+.section-title{
+    font-size:36px;
+}
+
+.contact-box{
+    padding:45px 25px;
+}
+
+.contact-box h2{
+    font-size:38px;
 }
 
 }
@@ -299,159 +490,289 @@ nav ul{
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
+
     <div class="logo">JM Fashion</div>
 
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">Tailoring</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#tailoring">Tailoring</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
+
 </nav>
 
-<section class="hero">
+<!-- HERO -->
+
+<section class="hero" id="home">
 
     <div class="hero-content">
-        <h1>Luxury <span>Textiles</span> & Perfect Tailoring</h1>
+
+        <h1>
+            Luxury <span>Textiles</span><br>
+            & Perfect Tailoring
+        </h1>
 
         <p>
-            Premium suiting, shirting, wedding collections and customized stitching crafted with elegance and precision in Bengaluru.
+            Premium wedding collections, designer fabrics,
+            custom tailoring and elegant fashion crafted
+            with perfection in Bengaluru.
         </p>
 
         <div class="hero-buttons">
-            <a href="tel:+918023101934" class="btn btn-primary">Call Now</a>
+
+            <a href="tel:+918023101934" class="btn btn-primary">
+                Call Now
+            </a>
 
             <a href="https://wa.me/918023101934" class="btn btn-outline">
                 WhatsApp
             </a>
+
         </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <h3>Store Details</h3>
+
+        <p>
+            📍 Vijayanagar, Bengaluru<br><br>
+
+            ⭐ 3.9 Rating<br><br>
+
+            🕒 Open Daily 10:30 AM – 9:30 PM<br><br>
+
+            👔 Premium Fashion Collections
+        </p>
+
     </div>
 
 </section>
+
+<!-- STATS -->
 
 <section class="stats">
 
-    <div class="stat-card">
-        <h2>40+</h2>
-        <p>Years Experience</p>
-    </div>
+    <div class="stats-grid">
 
-    <div class="stat-card">
-        <h2>5000+</h2>
-        <p>Happy Customers</p>
-    </div>
+        <div class="stat-card">
+            <h2>40+</h2>
+            <p>Years Experience</p>
+        </div>
 
-    <div class="stat-card">
-        <h2>Premium</h2>
-        <p>Wedding Collections</p>
-    </div>
+        <div class="stat-card">
+            <h2>5000+</h2>
+            <p>Happy Customers</p>
+        </div>
 
-    <div class="stat-card">
-        <h2>Expert</h2>
-        <p>Tailoring Service</p>
+        <div class="stat-card">
+            <h2>179+</h2>
+            <p>Customer Reviews</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>Premium</h2>
+            <p>Wedding Collections</p>
+        </div>
+
     </div>
 
 </section>
 
-<section class="collections">
+<!-- COLLECTIONS -->
+
+<section class="collections" id="collections">
 
     <h2 class="section-title">Our Collections</h2>
 
     <div class="collection-grid">
 
         <div class="card">
+
             <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop">
 
             <div class="card-content">
+
                 <h3>Wedding Suits</h3>
+
                 <p>
-                    Elegant premium wedding suits crafted with rich fabrics and flawless stitching.
+                    Elegant wedding suits crafted with
+                    luxurious fabrics and perfect stitching.
                 </p>
+
             </div>
+
         </div>
 
         <div class="card">
+
             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
 
             <div class="card-content">
+
                 <h3>Designer Fabrics</h3>
+
                 <p>
-                    Explore stylish imported and branded fabrics for every special occasion.
+                    Explore imported and premium fabrics
+                    for every occasion and celebration.
                 </p>
+
             </div>
+
         </div>
 
         <div class="card">
+
             <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
 
             <div class="card-content">
+
                 <h3>Custom Tailoring</h3>
+
                 <p>
-                    Perfect fitting and premium finishing by experienced tailoring experts.
+                    Professional tailoring with flawless
+                    fitting and premium finishing.
                 </p>
+
             </div>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="testimonials">
+<!-- TAILORING -->
+
+<section class="tailoring" id="tailoring">
+
+    <h2 class="section-title">Why Choose Us</h2>
+
+    <div class="tailoring-box">
+
+        <div class="tailor-card">
+
+            <h3>Perfect Fitting</h3>
+
+            <p>
+                Tailoring experts ensure every outfit
+                fits perfectly with precision measurements.
+            </p>
+
+        </div>
+
+        <div class="tailor-card">
+
+            <h3>Premium Fabrics</h3>
+
+            <p>
+                Wide range of imported and branded
+                fabrics for weddings and formal wear.
+            </p>
+
+        </div>
+
+        <div class="tailor-card">
+
+            <h3>Timely Delivery</h3>
+
+            <p>
+                Fast stitching and on-time delivery
+                with uncompromised quality standards.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section class="testimonials" id="reviews">
 
     <h2 class="section-title">Customer Reviews</h2>
 
     <div class="review-grid">
 
         <div class="review">
+
             <p>
-                “Excellent collection and perfect stitching quality. Very professional tailoring.”
+                “Excellent stitching quality and premium
+                collection. Highly recommended for weddings.”
             </p>
 
-            <h4>- Happy Customer</h4>
+            <h4>— Happy Customer</h4>
+
         </div>
 
         <div class="review">
+
             <p>
-                “Best place in Bengaluru for wedding suits and premium fabrics.”
+                “One of the best textile and tailoring stores
+                in Bengaluru with great service.”
             </p>
 
-            <h4>- Wedding Client</h4>
+            <h4>— Wedding Client</h4>
+
         </div>
 
         <div class="review">
+
             <p>
-                “Timely delivery with superb fitting. Highly recommended.”
+                “Professional staff, timely delivery and
+                amazing fitting experience.”
             </p>
 
-            <h4>- Regular Customer</h4>
+            <h4>— Regular Customer</h4>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="contact">
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
 
     <div class="contact-box">
 
         <h2>Visit Our Store</h2>
 
         <p>
-            Vijayanagar, Bengaluru • Open Daily 10:30 AM – 9:00 PM
+            📍 1157, 1st Main Road, Vijayanagar,
+            Bengaluru, Karnataka 560040
         </p>
 
-        <a href="tel:+918023101934" class="btn btn-primary">
-            Contact Store
-        </a>
+        <div class="hero-buttons">
+
+            <a href="tel:+918023101934" class="btn btn-primary">
+                Call Store
+            </a>
+
+            <a href="https://maps.google.com" class="btn btn-outline">
+                Open Map
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
-    © 2026 J M Textiles & Fashion • Designed with Premium Modern UI
+
+    © 2026 J M Textiles & Fashion • Premium Fashion Experience
+
 </footer>
 
 </body>
