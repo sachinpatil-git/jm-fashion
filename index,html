@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>J M Textiles & Fashion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(15,23,42,0.6);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#facc15;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#facc15;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8%;
+    background:
+    linear-gradient(to right, rgba(15,23,42,0.95), rgba(15,23,42,0.75)),
+    url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero-content h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-content h1 span{
+    color:#facc15;
+}
+
+.hero-content p{
+    font-size:18px;
+    color:#cbd5e1;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    padding:16px 32px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:#facc15;
+    color:black;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:2px solid #facc15;
+    color:#facc15;
+    background:transparent;
+}
+
+.btn-outline:hover{
+    background:#facc15;
+    color:black;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:80px 8%;
+    background:#111827;
+}
+
+.stat-card{
+    background:#1e293b;
+    padding:35px;
+    border-radius:24px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+    background:#334155;
+}
+
+.stat-card h2{
+    color:#facc15;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* COLLECTIONS */
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.collections{
+    padding:90px 8%;
+}
+
+.collection-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:28px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+    font-size:24px;
+}
+
+.card-content p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    padding:90px 8%;
+    background:#111827;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.review{
+    background:#1e293b;
+    padding:30px;
+    border-radius:22px;
+}
+
+.review p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.review h4{
+    color:#facc15;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 8%;
+    text-align:center;
+}
+
+.contact-box{
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    padding:60px;
+    border-radius:32px;
+    color:black;
+}
+
+.contact-box h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.contact-box p{
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:#020617;
+    color:#94a3b8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+nav ul{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">JM Fashion</div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Tailoring</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Luxury <span>Textiles</span> & Perfect Tailoring</h1>
+
+        <p>
+            Premium suiting, shirting, wedding collections and customized stitching crafted with elegance and precision in Bengaluru.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="tel:+918023101934" class="btn btn-primary">Call Now</a>
+
+            <a href="https://wa.me/918023101934" class="btn btn-outline">
+                WhatsApp
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-card">
+        <h2>40+</h2>
+        <p>Years Experience</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>5000+</h2>
+        <p>Happy Customers</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>Premium</h2>
+        <p>Wedding Collections</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>Expert</h2>
+        <p>Tailoring Service</p>
+    </div>
+
+</section>
+
+<section class="collections">
+
+    <h2 class="section-title">Our Collections</h2>
+
+    <div class="collection-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Wedding Suits</h3>
+                <p>
+                    Elegant premium wedding suits crafted with rich fabrics and flawless stitching.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Designer Fabrics</h3>
+                <p>
+                    Explore stylish imported and branded fabrics for every special occasion.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Custom Tailoring</h3>
+                <p>
+                    Perfect fitting and premium finishing by experienced tailoring experts.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="testimonials">
+
+    <h2 class="section-title">Customer Reviews</h2>
+
+    <div class="review-grid">
+
+        <div class="review">
+            <p>
+                “Excellent collection and perfect stitching quality. Very professional tailoring.”
+            </p>
+
+            <h4>- Happy Customer</h4>
+        </div>
+
+        <div class="review">
+            <p>
+                “Best place in Bengaluru for wedding suits and premium fabrics.”
+            </p>
+
+            <h4>- Wedding Client</h4>
+        </div>
+
+        <div class="review">
+            <p>
+                “Timely delivery with superb fitting. Highly recommended.”
+            </p>
+
+            <h4>- Regular Customer</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact">
+
+    <div class="contact-box">
+
+        <h2>Visit Our Store</h2>
+
+        <p>
+            Vijayanagar, Bengaluru • Open Daily 10:30 AM – 9:00 PM
+        </p>
+
+        <a href="tel:+918023101934" class="btn btn-primary">
+            Contact Store
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 J M Textiles & Fashion • Designed with Premium Modern UI
+</footer>
+
+</body>
+</html>
